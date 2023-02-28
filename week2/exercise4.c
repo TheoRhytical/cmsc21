@@ -6,16 +6,12 @@
 int g_maxRow, g_maxCol;
 
 typedef struct {
-	int row;
-	int col;
-	int objId;
-	bool isPoint;
-	bool isVisited;
+	int row, col;
+	bool isPoint, isVisited;
 } GridPoint;
 
 typedef struct {
-	int x;
-	int y;
+	int x, y;
 } Coord;
 
 typedef struct Node{
