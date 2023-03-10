@@ -1,4 +1,7 @@
 blog/
+blog*/
+Bogo/
+temp*/
 guest/
 .git/
 build/
