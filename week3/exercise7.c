@@ -39,6 +39,11 @@ void merge(struct Enemy* arr, int lowBound, int midIndex, int highBound) {
 }
 
 // merge sort
+// A recursive function that sorts enemies
+// I think this is quite advanced in the meantime, but if you're interested, here's a CS50 explainer
+// https://www.youtube.com/watch?v=Ns7tGNbtvV4
+// or this
+// https://www.youtube.com/watch?v=r9iYBM4-BMA
 struct Enemy* mergeSort(struct Enemy* arr, int lowBound, int highBound) {
 	if (lowBound >= highBound) return arr;
 	int midIndex = (lowBound + highBound) / 2;
@@ -51,29 +56,37 @@ struct Enemy* mergeSort(struct Enemy* arr, int lowBound, int highBound) {
 	return arr;
 }
 
+
+// I had to use sir's function prototype, but essentially, my sortin algorithm is within mergeSort()
 struct Enemy* sortEnemies(struct Enemy* enemies, int n) {
 	return mergeSort(enemies, 0, n - 1);
 }
 
 
 int main() {
+	// Setup for rand() to generate random numbers
 	srand(time(NULL));
 	struct Enemy enemies[5];
 
+	// Generate random stats for enemies with a range of 0 to 99
+	// I included manapoints and attackspeed for badazzle
 	for (int i = 0; i < 5; i++) {
 		enemies[i].hitpoints = rand() % 100;
 		enemies[i].manapoints = rand() % 100;
 		enemies[i].attackspeed = rand() % 100;
 	}
 
+	// Prints out enemy hitpoints before they're sorted
 	for (int i = 0; i < 5; i++) {
 		printf("enemy #%d hitpoints: %d\n", i, enemies[i].hitpoints);
 	}
 
 	printf("\n\n");
 
+	// Sort enemies
 	struct Enemy* sortedEnemies = sortEnemies(enemies, 5);
 
+	// Print hitpoints of sorted enemies
 	for (int i = 0; i < 5; i++) {
 		printf("enemy #%d hitpoints: %d\n", i, sortedEnemies[i].hitpoints);
 	}
