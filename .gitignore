@@ -5,3 +5,5 @@ temp*/
 guest/
 .git/
 build/
+.vscode/
+*.pdf
