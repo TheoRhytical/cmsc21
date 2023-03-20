@@ -5,7 +5,6 @@
 
 int arrCap = 20;
 int arrSize = 0;
-#define WORDSIZE 46
 
 
 typedef struct wordObj{
@@ -65,7 +64,7 @@ void bubbleSort(wordObj** wordArr) {
 
 int main() {
 	wordObj** wordArr = malloc(sizeof(wordObj*) * arrCap);
-	char buffer[WORDSIZE];
+	char buffer[];
 	char* cleanedWord;
 	int wordIndex, newWordIndex = 0, wordCount = 0;
 	while(scanf("%s", buffer) != EOF) {
